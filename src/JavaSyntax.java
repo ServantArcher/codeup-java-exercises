@@ -13,16 +13,15 @@ public class JavaSyntax {
         //There is an error in the code. Add an 'f' to the end of the number, change the declaration to double.
         System.out.println(myNumber);
 //        int x = 5;
-//        System.out.println(x++);
-//        System.out.println(x);
+//        System.out.println(x++); 5
+//        System.out.println(x); 6
         // The console prints out the variable number before adding the increment.
 //        int x = 5;
-//        System.out.println(++x);
-//        System.out.println(x);
+//        System.out.println(++x); 6
+//        System.out.println(x); 6
         //The console prints out the variable after the increment.
 
         //class is a reserved word, cannot assign a variable declaration to it.
-//
 //        int x = 4;
 //        x = x + 5;
         //x+=5;
@@ -34,11 +33,10 @@ public class JavaSyntax {
         int y = 2;
 //        x = x / y;
 //        y = y - x;
-        x/=y;
+//        x/=y;
         y=y-x;
         System.out.println(x);
         System.out.println(y);
-
 
 
     }
