@@ -10,7 +10,7 @@ public class Bob {
                 System.out.println("Sure");
             } else if (bobTalk.equals("")) {
                 System.out.println("Fine. Be that way!");
-            } else if (bobTalk.equals(bobTalk.toUpperCase())) {
+            } else if (bobTalk.equals(bobTalk.toUpperCase()) || bobTalk.endsWith("!")) {
                 System.out.println("Whoa, chill out!");
             } else {
                 System.out.println("Whatever");
