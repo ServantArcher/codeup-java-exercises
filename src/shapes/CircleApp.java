@@ -16,6 +16,7 @@ public class CircleApp {
             System.out.println("Would you like to find more circle info?");
 
 
+
         }
         while(moreCircles()); {
             int numbCreated= Circle.getTotalCircles();
@@ -23,6 +24,7 @@ public class CircleApp {
         }
 
     }
+    //Asks the user if they want to continue returns a boolean value.
     public static boolean moreCircles() {
         Input input= new Input();
         return input.yesNo();
