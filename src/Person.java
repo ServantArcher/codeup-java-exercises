@@ -6,11 +6,10 @@ public class Person {
         System.out.println(person.getName());
         person.setName("The Comedian");
         person.sayHello();
-
-
     }
-    public Person(String aName){
-        name=aName;
+
+    public Person(String name){
+        this.name=name;
     }
 
     public String getName(){
@@ -18,9 +17,9 @@ public class Person {
     }
 
     public void setName(String name){
-        System.out.println(name);
+        this.name=name;
     }
     public void sayHello() {
-        System.out.println("Hello from "+this.getName());
+        System.out.println("Hello from "+this.name);
     }
 }
