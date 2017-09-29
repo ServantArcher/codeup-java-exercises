@@ -2,17 +2,14 @@ package shapes;
 
 public class ShapesTest {
     public static void main(String[] args) {
-        Rectangle box1 =new Rectangle(4,5);
-        showRectangleInfo(box1);
-        Rectangle box2= new Square(5);
-        showRectangleInfo(box2);
-        //You can pass an object of the type Square.
+        Measurable myShape= new Square(5);
+        System.out.println(myShape.getArea());
+        System.out.println(myShape.getPerimeter());
+        myShape=new Rectangle(3,8);
+        System.out.println(myShape.getArea());
+        System.out.println(myShape.getPerimeter());
 
     }
-    public static void showRectangleInfo(Rectangle rectangle){
-        System.out.println("The rectangle's Area is: "+rectangle.getArea());
-        System.out.println("The rectangle's Perimeter is: "+rectangle.getPerimeter());
 
-    }
 
 }

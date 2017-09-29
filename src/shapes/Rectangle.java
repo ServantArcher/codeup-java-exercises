@@ -1,27 +1,37 @@
 package shapes;
 
-public class Rectangle {
-    private double length;
-    private double width;
+public class Rectangle extends Quadrilateral implements Measurable{
 
-    public Rectangle(double length, double width){
-        this.length=length;
-        this.width=width;
+// Doesn't need to Measurable since it's already defined in quadrilateral.
+    //Yes, it is used in Rectangle
+
+
+    public Rectangle(double length, double width) {
+        super(length, width);
     }
 
-    public double getArea(){
-        double area=this.length*this.width;
-        return area;
+    @Override
+    public double setLength() {
+        System.out.println("Rectangle Length is: ");
+        return this.length;
     }
-    public double getPerimeter(){
-        double perimeter=2*(this.length+this.width);
-        return perimeter;
+
+    @Override
+    public double setWidth() {
+        System.out.println("Rectangle Width is: ");
+        return this.width;
     }
-    public double getLength(){
-        return length;
+
+    @Override
+    public double getPerimeter() {
+        System.out.println("Rectangle Perimeter is: ");
+        return 2*(this.getWidth()+this.getLength());
     }
-    public double getWidth(){
-        return width;
+// Abstract method must be defined in order for the code to compile.
+    @Override
+    public double getArea() {
+        System.out.println("Rectangle Area is: ");
+        return (this.width*this.length);
     }
 
 }
