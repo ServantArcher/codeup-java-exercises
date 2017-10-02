@@ -14,32 +14,31 @@ public class GradesApplication {
     public static void startGitHubGrade(Input input) {
         //Created a HashMap that contains all of the users and grades.
         HashMap<String, String> students = new HashMap();
-        Student student1 = new Student("Sauron", 90);
-        student1.addGrades(87);
-        student1.addGrades(100);
+        Student sauron = new Student("Sauron", 90);
+        sauron.addGrades(87);
+        sauron.addGrades(100);
 
-        Student student2 = new Student("Golum", 76);
-        student2.addGrades(70);
-        student2.addGrades(98);
+        Student golum = new Student("Golum", 76);
+        golum.addGrades(70);
+        golum.addGrades(98);
 
-        Student student3 = new Student("Frodo", 84);
-        student3.addGrades(98);
-        student3.addGrades(94);
+        Student frodo = new Student("Frodo", 84);
+        frodo.addGrades(98);
+        frodo.addGrades(94);
 
-        Student student4 = new Student("Sam", 82);
-        student4.addGrades(54);
-        student4.addGrades(75);
+        Student sam = new Student("Sam", 82);
+        sam.addGrades(54);
+        sam.addGrades(75);
 
-        students.put(student1.getNames(), "MetalMaster");
-        students.put(student2.getNames(), "sLink/and/sTink");
-        students.put(student3.getNames(), "BurdenBarer");
-        students.put(student4.getNames(), "gaFFer");
+        students.put(sauron.getNames(), "MetalMaster");
+        students.put(golum.getNames(), "sLink/and/sTink");
+        students.put(frodo.getNames(), "BurdenBarer");
+        students.put(sam.getNames(), "gaFFer");
 
         //Arrays are made in order to index through them latter on.
         //Names can then be added to later on if needed.
-        String[] users = {student1.getNames(), student2.getNames(), student3.getNames(), student4.getNames()};
-        Student[] studentClass={student1,student2,student3,student4};
-
+        String[] users = {sauron.getNames(), golum.getNames(), frodo.getNames(), sam.getNames()};
+        Student[] studentClass={sauron,golum,frodo,sam};
         //Prints the list of users based on their GitHub names.
         System.out.println("");
         System.out.println("Here are the list of gitHub users:");
@@ -48,6 +47,14 @@ public class GradesApplication {
             System.out.print(students.get(users[i]));
             System.out.print(" | ");
         }
+        System.out.println("");
+
+        Input csv=new Input();
+        System.out.println("Would you like to print a csv report for all the students? (y/n)");
+        if(csv.yesNo()){
+            printCSV(studentClass,users);
+        }
+
 
         //Checks to see that the user entered a valid name from the given list of users.
         String userInput;
@@ -63,6 +70,7 @@ public class GradesApplication {
             else {
                     getStudentInfo(userInput, students, users, studentClass);
                     Input moreInfo = new Input();
+                System.out.println("");
                     System.out.println("Would you like to see another student?");
                     //If the user asks result returns true the info program will run again and ask user for a different username.
                     if(moreInfo.yesNo()){
@@ -81,11 +89,24 @@ public class GradesApplication {
                         //Indexes to the username passed by the user.
                         if (userInput.equals(students.get(users[i]))) {
                             System.out.println("Name: " + studentClass[i].getNames() + " - Github UserName: " + users[i]);
-                            System.out.println("The student's " + studentClass[i].getNames() + " average grade is: " + studentClass[i].getGradeAverage());
+                            System.out.println("The student " + studentClass[i].getNames() + " average grade is: " + studentClass[i].getGradeAverage());
+                            System.out.println("The student "+studentClass[i].getNames()+" grades are: "+studentClass[i].getGrades());
                         }
 
                     }
                 }
+                public static void printCSV(Student[] studentClass, String [] users){
+
+                    int i=0;
+                    for(Student student: studentClass){
+                        System.out.println(student.getNames()+", Github-Username: "+users[i]+", "+student.getGrades());
+                        i++;
+
+
+                    }
+                }
+
+
             }
 
 

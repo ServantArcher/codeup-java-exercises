@@ -1,11 +1,15 @@
 package grades;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Student {
 
     private String name;
     private ArrayList<Integer> grades;
+    private HashMap<String, String> attendence=new HashMap();
+    //<Date, A or P>
+
 
     public Student(String name, int grade){
         this.name=name;
@@ -13,6 +17,14 @@ public class Student {
         this.addGrades(grade);
     }
 
+    public double recordAttendance(String date, String value) {
+        this.attendence.put(date, value);
+        int daysAbsent=0;
+        if(this.attendence.containsValue("A")||this.attendence.containsValue("a")){
+            daysAbsent++;
+        }
+        return daysAbsent;
+    }
 
     public String getNames() {
         return this.name;
