@@ -11,15 +11,13 @@ public class Rectangle extends Quadrilateral implements Measurable{
     }
 
     @Override
-    public double setLength() {
-        System.out.println("Rectangle Length is: ");
-        return this.length;
+    public void setLength(double length) {
+        this.length=length;
     }
 
     @Override
-    public double setWidth() {
-        System.out.println("Rectangle Width is: ");
-        return this.width;
+    public void setWidth(double width) {
+        this.width=width;
     }
 
     @Override

@@ -6,25 +6,29 @@ public class Square extends Quadrilateral {
     }
 
     @Override
-    public double setLength() {
-        return this.getLength();
+    public void setLength(double side) {
+        this.length=side;
+        this.width=side;
     }
 
     @Override
-    public double setWidth() {
-        return this.getWidth();
+    public void setWidth(double side) {
+        this.width=side;
+        this.length=side;
     }
 
     @Override
     public double getPerimeter() {
         System.out.println("Square Perimeter is: ");
-        return 2*(this.getWidth()+this.getLength());
+        double side=this.length;
+        return 4*(side);
     }
 
     @Override
     public double getArea() {
         System.out.println("Square Area is: ");
-        return (this.getWidth()*this.getLength());
+        double side=this.length;
+        return (side*side);
     }
 
 }
