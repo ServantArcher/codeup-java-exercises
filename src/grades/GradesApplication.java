@@ -43,7 +43,7 @@ public class GradesApplication {
         System.out.println("");
         System.out.println("Here are the list of gitHub users:");
         for (int i = 0; i < users.length; i++) {
-            System.out.print(" | ");
+            System.out.print("| ");
             System.out.print(students.get(users[i]));
             System.out.print(" | ");
         }

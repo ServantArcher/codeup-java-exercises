@@ -5,21 +5,10 @@ import java.util.Scanner;
 public class Input {
     private Scanner scanner;
 
-    public static void main(String[] args) {
-//        Input input=new Input();
-//        System.out.println(input.getString());
-//        System.out.println(input.yesNo());
-//        input.getInt(1,10);
-//        input.getInt();
-//        input.getDouble(1.5, 27.8);
-//        input.getDouble();
-    }
-
     public Input() {
         this.scanner=new Scanner(System.in);
 
     }
-
     public String getString(){
         return scanner.nextLine();
     }
@@ -38,18 +27,25 @@ public class Input {
     else{
            return getInt(min, max);
         }
-
     }
-
     public int getInt() {
-        if (this.scanner.hasNextInt()) {
-            return this.scanner.nextInt();
-    }
-    else {
-            System.out.println("Invalid Input");
-            scanner.nextLine();
-            return getInt();
+        System.out.println("Please enter an integer.");
+        String userInput=scanner.nextLine();
+        try{
+            return Integer.valueOf(userInput);
         }
+        catch (NumberFormatException e){
+            System.out.println("whoops that is not an integer");
+            return  getInt();
+        }
+//        if (this.scanner.hasNextInt()) {
+//            return this.scanner.nextInt();
+//    }
+//    else {
+//            System.out.println("Invalid Input");
+//            scanner.nextLine();
+//            return getInt();
+//        }
     }
 
     public double getDouble(double min, double max){
@@ -65,10 +61,48 @@ public class Input {
             return getDouble(min, max);
         }
     }
-
     public double getDouble(){
-        Double number=this.scanner.nextDouble();
-        return number;
+        System.out.println("Please enter a number.");
+        String userInput=scanner.nextLine();
+        try{
+            return Double.valueOf(userInput);
+        }
+        catch (NumberFormatException e){
+            System.out.println("Sorry that is not a number.");
+            return getDouble();
+        }
+    }
+    public int getBinary(){
+        //At this point getBinary only works for integers
+        System.out.println("Please enter a binary number");
+        String userInput=scanner.nextLine();
+        try {
+            System.out.println("Your number in base 10 is:");
+            return Integer.valueOf(String.valueOf(userInput), 2);
+        }
+        catch (NumberFormatException e){
+            System.out.println("Sorry that is not binary number");
+            return getBinary();
+        }
+    }
+    public int getHex(){
+        //At this point getHex only works for integers
+        System.out.println("Please enter a hexidecimal number");
+        String userInput=scanner.nextLine();
+        try {
+            System.out.println("Your number in base 10 is:");
+            return Integer.valueOf(String.valueOf(userInput), 16);
+        }
+        catch (NumberFormatException e){
+            System.out.println("Sorry that is not a hexacimal number");
+            return getHex();
+        }
     }
 
+    public static void main(String[] args) {
+        Input input=new Input();
+//        System.out.println(input.getDouble());
+        System.out.println(input.getBinary());
+
+    }
 }
